@@ -16,6 +16,7 @@ hGJMzMBZMVt3FlPSmi/zI00sdjbbvfrNFasBfMynwkYNu+Sh3TNUv9LgNvgSneFk
 ```
 
 ## How to install
+This is tested on Python 3.11.0
 ```bash
 python -m venv venv
 source venv/bin/activate
