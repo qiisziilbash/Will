@@ -2,6 +2,7 @@
 I have a couple of close friends that have my secret key in case I die.
 
 This is my public key (You can also find it in the `data/public_key.pem` file or my other genuine public profiles):
+
 ```
 -----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiicaOmmFWUrD4zjrvBtl
@@ -23,17 +24,18 @@ pip install -r requirements.txt
 
 ## How to decrypt my will
 ```bash
-python decrypt.py -name will
+python decrypt.py will
 ```
 
-## How to decrypt my will
+## How to decrypt my passwords
 ```bash
-python decrypt.py -name passwords
+python decrypt.py passwords
 ```
 
 ## How to verify my digital signature
-
+1. Put the message to be claimed that is signed by me in the `data/message.txt` file
+2. Put the signature hex in the `data/hex_signature.txt` file
+3. Run
 ```bash
-python verify.py -message data/message.txt -signature data/hex_signature.txt
+python verify.py
 ```
-

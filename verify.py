@@ -1,6 +1,4 @@
 # %%
-import base64
-
 from cryptography.hazmat.primitives import hashes, serialization
 from cryptography.hazmat.primitives.asymmetric import padding
 
@@ -8,10 +6,10 @@ from cryptography.hazmat.primitives.asymmetric import padding
 with open("data/public_key.pem", "rb") as key_file:
     public_key = serialization.load_pem_public_key(key_file.read())
 
-with open("data/message.txt", "rb") as message_file:
+with open("data/message/content.txt", "rb") as message_file:
     message = message_file.read()
 
-with open("data/hex_signature.txt", "r") as signature_file:
+with open("data/message/hex_signature.txt", "r") as signature_file:
     signature = signature_file.read()
     signature = bytes.fromhex(signature)
 
@@ -27,4 +25,4 @@ except Exception as e:
     print("Signature verification failed!")
     print(f"Error: {e}")
 
-#%%
+# %%
