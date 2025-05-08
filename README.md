@@ -23,11 +23,15 @@ pip install -r requirements.txt
 ```
 
 ## How to decrypt my will
+Note that you need the private key to decrypt.
+Please put the private key in the `data/private_key.pem` file and then run:
 ```bash
 python decrypt.py will
 ```
 
 ## How to decrypt my passwords
+Note that you need the private key to decrypt.
+Please put the private key in the `data/private_key.pem` file and then run:
 ```bash
 python decrypt.py passwords
 ```
