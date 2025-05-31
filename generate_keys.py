@@ -6,8 +6,7 @@ from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.primitives.asymmetric import rsa
 
 
-public_prefix = "mario"  # use "" if you want to generate a random key
-
+public_contains = "mario"  # use "" if you want to generate a random key
 
 def generate_key_with_prefix(desired_prefix):
     while True:
@@ -19,11 +18,12 @@ def generate_key_with_prefix(desired_prefix):
         )
 
         b64_str = base64.b64encode(public_pem).decode("utf-8")
-        if b64_str.startswith(desired_prefix):
+        
+        if public_contains and public_contains in b64_str:
             return private_key, public_key
 
 
-private_key, public_key = generate_key_with_prefix(public_prefix)
+private_key, public_key = generate_key_with_prefix(public_contains)
 
 private_pem = private_key.private_bytes(
     encoding=serialization.Encoding.PEM,
@@ -35,8 +35,8 @@ public_pem = public_key.public_bytes(
     encoding=serialization.Encoding.PEM, format=serialization.PublicFormat.SubjectPublicKeyInfo
 )
 
-with open("private_key.pem", "wb") as file:
+with open("data/private_key.pem", "wb") as file:
     file.write(private_pem)
 
-with open("public_key.pem", "wb") as file:
+with open("data/public_key.pem", "wb") as file:
     file.write(public_pem)
